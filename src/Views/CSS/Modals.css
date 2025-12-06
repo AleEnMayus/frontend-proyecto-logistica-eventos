@@ -1,0 +1,500 @@
+/* ===========================
+  Overlay del modal
+=========================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+/* ===========================
+  Contenedor principal del modal
+=========================== */
+.profile-modal {
+  position: fixed !important;
+  top: 10vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 22px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(84, 84, 84, 0.2);
+  z-index: 100;
+}
+
+.profile-modal.w-800 {
+  max-width: 800px;
+  width: 100%;
+}
+
+.profile-modal .close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* ===========================
+  Cuerpo del modal
+=========================== */
+.pm-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  height: 100%;
+}
+
+.pm-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+}
+
+.pm-photo svg,
+.pm-photo img {
+  margin: auto;
+}
+
+.pm-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  flex-shrink: 0;
+}
+
+.img-pf {
+  width: 150px;
+  height: 150px;
+}
+
+/* ===========================
+  Campos y etiquetas
+=========================== */
+.pm-fields {
+  flex: 1;
+}
+
+.field-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.field-row.two-cols .field {
+  flex: 1;
+}
+
+.field {
+  width: 100%;
+}
+
+.field-label {
+  font-size: 12px;
+  color: #6c757d;
+  margin-bottom: 4px;
+}
+
+.field-label .text-muted {
+  font-size: 0.75rem;
+  font-weight: normal;
+}
+
+.field-value,
+.field-value input,
+.field-value select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: #f3f5f7;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.field-value:focus,
+.field-value input:focus,
+.field-value select:focus {
+  border-color: #0e40b68b;
+  background: #fff;
+}
+
+/* Campos deshabilitados */
+.field-disabled {
+  background-color: #f8f9fa !important;
+  color: #6c757d !important;
+  cursor: not-allowed !important;
+  border-color: #dee2e6 !important;
+  opacity: 0.7;
+}
+
+.field-disabled:focus {
+  box-shadow: none !important;
+  border-color: #dee2e6 !important;
+}
+
+.field-disabled option {
+  color: #6c757d;
+}
+
+.field-disabled:hover {
+  background-color: #f8f9fa !important;
+}
+
+.field-disabled::placeholder {
+  color: #adb5bd !important;
+  opacity: 1;
+}
+
+/* ===========================
+  Footer
+=========================== */
+.pm-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* ===========================
+  Estados, botones y utilidades
+=========================== */
+.w-80 {
+  max-width: 80% !important;
+}
+
+.min-h-200px {
+  min-height: 100px;
+  max-height: 200px;
+  resize: none;
+}
+
+.modal-message {
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+.error-text {
+  color: red;
+  font-size: 12px;
+}
+
+/* ===========================
+  Opciones de estado
+=========================== */
+.status-options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.status-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #f8f9fa;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.status-option:hover {
+  background: #f1f1f1;
+}
+
+.status-option.selected {
+  background: #f5f0ff;
+  border: 1px solid #6c5ce7;
+  color: #6c5ce7;
+}
+
+.status-box {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: 2px solid #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.status-option.selected .status-box {
+  border-color: #6c5ce7;
+  background: #6c5ce7;
+}
+
+.status-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.modal-description {
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  background: #f3f5f7;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 6px;
+}
+
+
+/* Recursos desabilitados */
+/* Fila deshabilitada */
+.disabled-row {
+  opacity: 0.6;
+  background-color: #f5f5f5;
+  pointer-events: none;
+}
+
+input[type="checkbox"]:disabled + .checkmark {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+input:disabled {
+  background-color: #eee;
+  cursor: not-allowed;
+}
+
+/* ===========================
+  Modal de comentarios
+=========================== */
+.modal-comment-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.modal-comment-item:hover {
+  background: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.modal-comment-item .comment-text {
+  flex: 1;
+  font-size: 14px;
+  color: #495057;
+  line-height: 1.5;
+}
+
+.modal-comment-item .btn-primary-custom {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* ===========================
+  Scrollbar personalizado
+=========================== */
+.pm-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pm-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.pm-body::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.pm-body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ===========================
+  Botón secundario / Cancelar
+=========================== */
+.btn-status {
+  background-color: #eff4f8 !important;
+  color: rgb(26, 25, 25) !important;
+  border: none !important;
+  border-radius: 25px !important;
+  padding: 10px 25px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+.btn-status:hover {
+  background-color: #c5cbcf !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3) !important;
+}
+
+/* ===========================
+   Botón de editar foto (ícono cámara)
+=========================== */
+.pm-photo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pm-photo img,
+.pm-photo svg {
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.btn-edit-photo {
+  position: absolute;
+  bottom: 100px;
+  right: 6px;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.btn-edit-photo:hover {
+  background: #f3f5f7;
+  border-color: #0e40b6;
+  transform: scale(1.1);
+}
+
+.btn-edit-photo:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===========================
+   Cuerpo del perfil del modal
+=========================== */
+.pm-body-profile {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: nowrap;
+  padding: 10px 0;
+}
+
+.pm-body-profile .pm-photo {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pm-body-profile .pm-fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Imagen de perfil */
+.pm-body-profile .img-pf {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===========================
+   Responsive (desde 520px)
+=========================== */
+@media (max-width: 520px) {
+  .pm-body-profile {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-align: center;
+    padding: 0 !important;
+  }
+
+  .pm-body-profile .pm-photo {
+    order: 1;
+  }
+
+  .pm-body-profile .pm-fields {
+    order: 2;
+    width: 100%;
+  }
+
+  .pm-body-profile .img-pf {
+    width: 120px;
+    height: 120px;
+  }
+
+  .pm-body-profile .field-row {
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .pm-body-profile .field {
+    width: 100%;
+  }
+
+  .pm-body-profile .btn-edit-photo {
+    bottom: -7px;
+    right: 140px;
+  }
+
+  .field-row {
+    margin-bottom: 0 !important;
+  }
+}
+
+
+/* ===========================
+  Responsive
+=========================== */
+@media (max-width: 768px) {
+  .modal-comment-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modal-comment-item .btn-primary-custom {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .profile-modal.w-800 {
+    max-width: 95%;
+    width: 95%;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+}

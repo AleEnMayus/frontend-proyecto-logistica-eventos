@@ -1,0 +1,126 @@
+/* Galería de imágenes */
+.gallery-manager {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.gallery-left {
+  padding: 90px 20px 5px; /* margen por header fijo */
+  max-width: 1420px;
+  margin: 0 auto;
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gallery-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+  min-height: 400px;
+}
+
+.image-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 4/3;
+}
+
+.image-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.image-wrapper {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover .preview-image {
+  transform: scale(1.05);
+}
+
+.delete-image-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(220, 53, 69, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.image-card:hover .delete-image-btn {
+  opacity: 1;
+}
+
+.delete-image-btn:hover {
+  background-color: rgba(200, 35, 51, 1);
+  transform: scale(1.1);
+}
+
+.delete-image-btn svg {
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .gallery-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gallery-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}

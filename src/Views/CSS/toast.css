@@ -1,0 +1,101 @@
+.toast-stack {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.custom-toast {
+  padding: 1rem 1.4rem !important;
+  border-radius: 12px !important;
+  min-width: 280px !important;
+  max-width: 380px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  pointer-events: auto !important;
+  
+  /* FORZAR la animación de entrada */
+  animation: slideIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+  animation-fill-mode: both !important;
+}
+
+/* SALIDA */
+.custom-toast.removing {
+  animation: fadeOut 0.5s ease-in forwards !important;
+}
+
+.toast-body {
+  flex: 1;
+}
+
+.custom-toast.type-success {
+  background: #10b981 !important;
+  color: white !important;
+}
+
+.custom-toast.type-danger {
+  background: #ef4444 !important;
+  color: white !important;
+}
+
+.custom-toast.type-info {
+  background: #3b82f6 !important;
+  color: white !important;
+}
+
+.custom-toast.type-warning {
+  background: #f59e0b !important;
+  color: white !important;
+}
+
+button.close-button {
+  background-color: transparent !important;
+  border: none !important;
+  color: white !important;
+  cursor: pointer !important;
+  padding: 0.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px !important;
+  opacity: 0.8 !important;
+  flex-shrink: 0 !important;
+  transition: all 0.2s ease !important;
+}
+
+button.close-button:hover {
+  opacity: 1 !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  transform: scale(1.1) !important;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(450px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(450px) scale(0.9);
+    opacity: 0;
+  }
+}
