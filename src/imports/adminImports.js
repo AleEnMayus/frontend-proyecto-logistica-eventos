@@ -1,5 +1,5 @@
-export { default as Notification } from '../Views/admin/Notification'
-export { default as AdminCalendar } from '../Views/admin/Calendaradmin'
+export { default as Notifications } from '../Views/admin/Notification'
+export { default as CalendarAdmin } from '../Views/admin/Calendaradmin'
 export { default as HomeAdmin } from '../Views/general/HomePageAdm'
 // Gestión de Eventos
 export { default as ListEventsA } from '../Views/admin/Events/HomeEventsAdm'
@@ -14,11 +14,11 @@ export { default as EditAccountPage } from '../Views/admin/ManageAcc/EditAccAdmi
 export { default as CreateResource } from '../Views/admin/Resource/CreateResource'
 export { default as ListResource } from '../Views/admin/Resource/HomeResource'
 // Gestión galeria
-export { default as ManagerImageGallery } from '../Views/admin/gallery/gallery1'
-export { default as ImageGallery } from '../Views/admin/gallery/gallery2'
+export { default as AdminImageGallery } from '../Views/admin/gallery/gallery1'
+export { default as AdminImageDetail } from '../Views/admin/gallery/gallery2'
 // Gestión de Contratos
 export { default as ContractsAdmin } from '../Views/admin/Contracts/HomeContractsAdmin'
 export { default as ContractsList } from '../Views/admin/Contracts/ListContracts'
 // Gestión de Encuestas
-export { default as Survay } from '../Views/admin/CreateSurvey/survey'
+export { default as Survey } from '../Views/admin/CreateSurvey/survey'
 export { default as CreateSurvay } from '../Views/admin/CreateSurvey/createsurvey'

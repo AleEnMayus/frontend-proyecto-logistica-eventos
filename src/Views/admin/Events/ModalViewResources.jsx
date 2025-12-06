@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 import "../../../Views/CSS/Modals.css";
-import "../../../Views/CSS/Components.css";
+import "../../../Views/CSS/components.css";
 
 const ModalViewResources = ({ resources = [], onClose }) => {
   const [busqueda, setBusqueda] = useState("");

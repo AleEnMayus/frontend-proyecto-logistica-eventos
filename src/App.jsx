@@ -20,7 +20,6 @@ import {
   RecoverPassword,
   Logout,
   UpdatePassword,
-  TestC,
   NotFound
 } from './imports/commonImports';
 
@@ -35,12 +34,12 @@ import {
   EditEvent,
   ListResource,
   CreateResource,
-  Survay,
+  Survey,
   CreateSurvay,
-  Notification,
-  ImageGallery,
-  ManagerImageGallery,
-  AdminCalendar,
+  Notifications,
+  AdminImageDetail,
+  AdminImageGallery,
+  CalendarAdmin,
   ContractsAdmin,
   ContractsList,
   HomeAdmin
@@ -51,11 +50,11 @@ import {
   Schedule,
   EventDetailsC,
   ListEventsC,
-  SurvayClient,
+  ClientSurvey,
   NotificationsClient,
   ImageGalleryC,
   ImageGalleryViewerC,
-  ClientCalendar,
+  CalendarClient,
   ContractsClient,
   HomeClient
 } from './imports/clientImports';
@@ -76,25 +75,25 @@ const routeConfig = {
   ],
   admin: [
     { path: '/HomeAdmin', component: HomeAdmin },
-    { path: '/NotificationsAdmin', component: Notification },
+    { path: '/NotificationsAdmin', component: Notifications },
     // Recursos
 
     { path: '/HomeResources', component: ListResource },
     { path: '/CreateResource', component: CreateResource },
 
     // Encuestas
-    { path: '/SurvayHome', component: Survay },
+    { path: '/SurvayHome', component: Survey },
     { path: '/SurvayHome/create', component: CreateSurvay },
     
     // Galería
-    { path: '/GalleryViewAdmin/:ImgId', component: ImageGallery },
-    { path: '/GalleryAdmin', component: ManagerImageGallery },
+    { path: '/GalleryViewAdmin/:ImgId', component: AdminImageDetail },
+    { path: '/GalleryAdmin', component: AdminImageGallery },
 
     // Cuentas de usuario
     { path: '/ManageAccounts', component: AdminAccountsList },
     { path: '/CreateAccount', component: CreateAccountForm },
     { path: '/ManageAccounts/edit/:userId', component: EditAccountPage },
-    { path: '/CalendarAdmin', component: AdminCalendar },
+    { path: '/CalendarAdmin', component: CalendarAdmin },
 
     // Contratos
     { path: '/SendContractsAdmin/:eventId', component: ContractsAdmin },
@@ -111,18 +110,15 @@ const routeConfig = {
   client: [
     { path: '/HomeClient', component: HomeClient },
     { path: '/Schedule', component: Schedule },
-    { path: '/Survey/:eventId', component: SurvayClient },
+    { path: '/Survey/:eventId', component: ClientSurvey },
     { path: '/GalleryView/:ImgId', component: ImageGalleryViewerC },
     { path: '/Gallery', component: ImageGalleryC },
-    { path: '/Calendar', component: ClientCalendar },
+    { path: '/Calendar', component: CalendarClient },
     { path: '/HomeContracts', component: ContractsClient },
     { path: '/EventsHome/Details/:eventId', component: EventDetailsC },
     { path: '/EventsHome', component: ListEventsC },
     { path: '/Notification-tray', component: NotificationsClient },
-  ],
-  development: [
-    { path: '/test', component: TestC },
-  ],
+  ]
 };
 
 // Hook de autenticación

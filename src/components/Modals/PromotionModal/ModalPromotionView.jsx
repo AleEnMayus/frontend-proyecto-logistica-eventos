@@ -1,6 +1,6 @@
 import React from "react";
 import "../../../Views/CSS/Modals.css";
-import "../../../Views/CSS/Components.css";
+import "../../../Views/CSS/components.css";
 
 const ModalPromotionView = ({ promo, onClose }) => {
   if (!promo) return null;

@@ -3,7 +3,7 @@ import api from "../../../utils/axiosConfig";
 import { eraseUnderscore } from "../../../utils/FormatText";
 import "../../CSS/components.css";
 import "../../CSS/Lists.css";
-import "../../CSS/modals.css";
+import "../../CSS/Modals.css";
 
 const EditAssignResourcesModal = ({ onClose, onSave, preselected = [] }) => {
   const [busqueda, setBusqueda] = useState("");

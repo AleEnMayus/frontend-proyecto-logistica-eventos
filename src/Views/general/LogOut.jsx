@@ -1,7 +1,7 @@
 // src/pages/Logout.jsx
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../CSS/Logout.css";
+import "../CSS/LogOut.css";
 import api from '../../utils/axiosConfig';
 import { socket } from '../../services/socket';
 

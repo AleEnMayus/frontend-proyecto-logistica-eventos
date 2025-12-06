@@ -11,6 +11,3 @@ export { default as UpdatePassword } from '../Views/general/NewPassword'
 
 // Página error 404
 export { default as NotFound } from '../Views/general/NotFound'
-
-// Página de prueba
-export { default as TestC } from '../test'

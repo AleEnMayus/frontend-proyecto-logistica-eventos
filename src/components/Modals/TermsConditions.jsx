@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Views/CSS/modals.css";
+import "../../Views/CSS/Modals.css";
 import "../../Views/CSS/components.css";
 
 const TermsModal = ({ onClose }) => {
