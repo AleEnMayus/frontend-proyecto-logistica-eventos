@@ -211,6 +211,26 @@ const HomeClient = () => {
             </div>
 
             {/* Tarjeta 6: Ayuda y Soporte */}
+            {/* Tarjeta: Manual de Usuario (Cliente) */}
+            <div className="col-12 col-sm-6 col-lg-4">
+              <div className="card h-100 border-0 shadow-sm hover-card">
+                <div className="card-body d-flex flex-column">
+                  <div className="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
+                    style={{ width: '56px', height: '56px', backgroundColor: '#eef2ff' }}>
+                    <i className="bi bi-book-fill fs-4" style={{ color: '#4f46e5' }}></i>
+                  </div>
+                  <h5 className="card-title fw-semibold text-dark">Manual de Usuario</h5>
+                  <p className="card-text text-muted flex-grow-1">
+                    Consulta el manual de usuario para aprender a usar la plataforma.
+                  </p>
+                  <a href="/manual_usuario.pdf" target="_blank" rel="noopener noreferrer" className="text-decoration-none fw-semibold d-inline-flex align-items-center"
+                    style={{ color: '#15A5E7' }}>
+                    Abrir manual
+                    <i className="bi bi-arrow-right ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
             <div className="col-12 col-sm-6 col-lg-4">
               <div className="card h-100 border-0 shadow-sm hover-card">
                 <div className="card-body d-flex flex-column">
