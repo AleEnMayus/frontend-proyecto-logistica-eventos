@@ -169,7 +169,7 @@ const PublicOnlyRoute = ({ children, isAuthenticated }) => {
 
 // Redirección dinámica del "/"
 const HomeRedirect = ({ isAuthenticated, userRole }) => {
-  if (!isAuthenticated) return <Navigate to="/HomeGuest" replace />;
+  if (!isAuthenticated) return <Navigate to="/Home" replace />;
   if (userRole === "admin") return <Navigate to="/HomeAdmin" replace />;
   if (userRole === "user") return <Navigate to="/HomeClient" replace />;
   return <Navigate to="/HomeGuest" replace />;

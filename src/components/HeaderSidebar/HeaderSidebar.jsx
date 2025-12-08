@@ -30,7 +30,7 @@ const HeaderSidebar = () => {
           </div>
 
           {/* Botones de acción */}
-          <div className="d-flex align-items-center gap-2 flex-wrap">
+          <div className="d-flex align-items-center gap-1 flex-wrap btn-sidebar-header">
             <a 
               href="/Register" 
               className="btn btn-secondary-custom sm-btn"

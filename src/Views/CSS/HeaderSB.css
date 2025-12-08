@@ -183,4 +183,10 @@
   .title-headersb {
     display: none; /* Oculta el nombre del usuario, deja solo avatar */
   }
+  .header-container {
+    height: 90px;
+  }
+  .btn-sidebar-header {
+    flex-direction: column !important;
+  }
 }
