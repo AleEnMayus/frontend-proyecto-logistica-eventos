@@ -181,7 +181,7 @@ const LoginPage = () => {
               style={{ width: "100%", marginBottom: "15px", display: "flex", justifyContent: "center" }}
             >
               <Link
-                to="/recover"
+                to="/Recover"
                 className="forgot-password"
                 style={{ display: "block", textAlign: "center" }}
               >

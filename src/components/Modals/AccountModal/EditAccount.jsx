@@ -567,7 +567,7 @@ const EditModal = ({ isOpen, onClose, user, onSave }) => {
               className="btn-secondary-custom btn w-100"
               onClick={() => {
                 onClose();
-                navigate("/updatePassword");
+                navigate("/UpdatePassword");
               }}
             >
               Cambiar contraseña

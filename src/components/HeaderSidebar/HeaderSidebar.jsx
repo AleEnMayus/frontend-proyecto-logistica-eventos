@@ -33,13 +33,13 @@ const HeaderSidebar = () => {
           <div className="d-flex align-items-center gap-2 flex-wrap">
             <a 
               href="/Register" 
-              className="btn btn-secondary-custom"
+              className="btn btn-secondary-custom sm-btn"
             >
               Registro
             </a>
             <Link 
-              to="/login" 
-              className="btn btn-secondary-custom"
+              to="/Login" 
+              className="btn btn-secondary-custom sm-btn"
             >
               Iniciar Sesión
             </Link>

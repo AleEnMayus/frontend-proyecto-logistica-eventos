@@ -7,7 +7,7 @@ import api from './utils/axiosConfig';
 
 // Toasts
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css";ssw
 
 // Estilos
 import './Views/CSS/components.css';
@@ -62,16 +62,16 @@ import {
 // Configuración de rutas
 const routeConfig = {
   public: [
-    { path: '/HomeGuest', component: HomeGuest },
+    { path: '/Home', component: HomeGuest },
   ],
   publicOnly: [
-    { path: '/login', component: LoginPage },
-    { path: '/register', component: RegisterPage },
-    { path: '/recover', component: RecoverPassword },
+    { path: '/Login', component: LoginPage },
+    { path: '/Register', component: RegisterPage },
+    { path: '/Recover', component: RecoverPassword },
   ],
   authenticated: [
-    { path: '/logout', component: Logout },
-    { path: '/updatePassword', component: UpdatePassword },
+    { path: '/Logout', component: Logout },
+    { path: '/UpdatePassword', component: UpdatePassword },
   ],
   admin: [
     { path: '/HomeAdmin', component: HomeAdmin },

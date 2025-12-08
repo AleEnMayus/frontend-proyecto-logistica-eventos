@@ -249,7 +249,7 @@ const PerfilModal = ({ isOpen, onClose, onEdit }) => {
             className="btn-secondary-custom btn w-100"
             onClick={() => {
               onClose();
-              navigate("/logout");
+              navigate("/Logout");
             }}
           >
             Cerrar sesión

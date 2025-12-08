@@ -168,7 +168,7 @@ const HeaderCl = () => {
                     >
                       Ver perfil
                     </button>
-                    <Link to="/logout" className="dropdown-item-custom">
+                    <Link to="/Logout" className="dropdown-item-custom">
                       Cerrar sesión
                     </Link>
                   </div>
