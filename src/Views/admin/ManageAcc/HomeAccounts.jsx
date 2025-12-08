@@ -38,10 +38,12 @@ const AdminAccountsList = () => {
       setLoading(true);
       const res = await api.get("/accounts");
       const data = res.data;
-      setUsers(data);
+      // Ensure data is always an array
+      setUsers(Array.isArray(data) ? data : []);
       setCurrentPage(1); // Reinicia la paginación al cargar datos
     } catch (err) {
       console.error("Error cargando cuentas:", err);
+      setUsers([]);
       addToast(err.response?.data?.error || err.message || "Error cargando cuentas", "danger");
     } finally {
       setLoading(false);

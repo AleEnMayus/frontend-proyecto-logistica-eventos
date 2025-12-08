@@ -36,10 +36,14 @@ export default function ImageDetail() {
     try {
       const res = await api.get(`/gallery/${ImgId}/comments`);
       const data = res.data;
-      setComments(data);
-      setSelectedComments(data.map((c) => c.CommentId));
+      // Ensure data is always an array
+      const comments = Array.isArray(data) ? data : [];
+      setComments(comments);
+      setSelectedComments(comments.map((c) => c.CommentId));
     } catch (err) {
       console.error("Error al recargar comentarios:", err);
+      setComments([]);
+      setSelectedComments([]);
     }
   };
 

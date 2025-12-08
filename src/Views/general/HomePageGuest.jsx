@@ -14,8 +14,11 @@ const HomeGuest = () => {
   // Cargar promociones
   const loadPromotions = () => {
     api.get("/promotions")
-      .then(res => setPromociones(res.data))
-      .catch(err => console.error("Error cargando promociones:", err));
+      .then(res => setPromociones(Array.isArray(res.data) ? res.data : []))
+      .catch(err => {
+        console.error("Error cargando promociones:", err);
+        setPromociones([]);
+      });
   };
 
   useEffect(() => {
@@ -45,7 +48,7 @@ const HomeGuest = () => {
           
           const images = await Promise.all(imagePromises);
           const validImages = images.filter(img => img && img.url);
-          setGalleryImages(validImages);
+          setGalleryImages(Array.isArray(validImages) ? validImages : []);
         }
       } catch (err) {
         console.error("Error cargando galería:", err);
@@ -87,14 +90,14 @@ const HomeGuest = () => {
               <div className="spinner"></div>
               <p>Cargando galería...</p>
             </div>
-          ) : galleryImages.length > 0 ? (
+          ) : galleryImages && Array.isArray(galleryImages) && galleryImages.length > 0 ? (
             <div className="gallery-carousel">
               <div className="carousel-wrapper">
                 <div 
                   className="carousel-track" 
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
-                  {galleryImages.map((image) => (
+                  {Array.isArray(galleryImages) && galleryImages.map((image) => (
                     <div key={image.FileId} className="carousel-slide">
                       <div className="image-container">
                         <img
@@ -121,7 +124,7 @@ const HomeGuest = () => {
                   </button>
                   
                   <div className="carousel-indicators">
-                    {galleryImages.map((_, index) => (
+                    {Array.isArray(galleryImages) && galleryImages.map((_, index) => (
                       <div
                         key={index}
                         className={`indicator ${index === currentSlide ? 'active' : ''}`}
@@ -159,7 +162,7 @@ const HomeGuest = () => {
           </div>
 
           <div className="promotions-grid">
-            {promociones.map((promo) => (
+            {Array.isArray(promociones) && promociones.map((promo) => (
               <div
                 key={promo.PromotionId}
                 className="promotion-card"

@@ -20,9 +20,11 @@ const Notifications = () => {
     try {
       const res = await api.get('/requests');
       const data = res.data;
-      setRequests(data);
+      // Ensure data is always an array
+      setRequests(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error(err);
+      setRequests([]);
       addToast("Error al cargar notificaciones", "error");
     } finally {
       setLoading(false);

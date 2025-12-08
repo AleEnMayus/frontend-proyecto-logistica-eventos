@@ -33,9 +33,11 @@ const ListResource = () => {
       setLoading(true);
       const res = await api.get(API_URL);
       const data = res.data;
-      setRecursos(data);
+      // Ensure data is always an array
+      setRecursos(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error("Error cargando recursos:", err);
+      setRecursos([]);
       addToast(err.response?.data?.error || err.message || "Error al cargar los recursos", "danger");
     } finally {
       setLoading(false);
