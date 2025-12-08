@@ -7,7 +7,7 @@ import api from './utils/axiosConfig';
 
 // Toasts
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";ssw
+import "react-toastify/dist/ReactToastify.css";
 
 // Estilos
 import './Views/CSS/components.css';
