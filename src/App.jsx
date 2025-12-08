@@ -157,7 +157,7 @@ const useAuth = () => {
 
 // Protección de rutas
 const ProtectedRoute = ({ children, requiredRole, userRole, isAuthenticated }) => {
-  if (!isAuthenticated) return <Navigate to="/login" replace />;
+  if (!isAuthenticated) return <Navigate to="/Login" replace />;
   if (requiredRole && userRole !== requiredRole) return <Navigate to="/" replace />;
   return children;
 };
@@ -172,7 +172,7 @@ const HomeRedirect = ({ isAuthenticated, userRole }) => {
   if (!isAuthenticated) return <Navigate to="/Home" replace />;
   if (userRole === "admin") return <Navigate to="/HomeAdmin" replace />;
   if (userRole === "user") return <Navigate to="/HomeClient" replace />;
-  return <Navigate to="/HomeGuest" replace />;
+  return <Navigate to="/Home" replace />;
 };
 
 // Renderizado dinámico de rutas
@@ -215,7 +215,7 @@ function App() {
           console.warn('Logout request failed', e);
         }
         try { sessionStorage.removeItem('user'); sessionStorage.removeItem('role'); sessionStorage.removeItem('name'); } catch(e){}
-        window.location.href = '/login';
+        window.location.href = '/Login';
       }, 30 * 60 * 1000);
     }
     return () => autoLogoutService.stop();
