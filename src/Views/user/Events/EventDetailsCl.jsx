@@ -224,11 +224,13 @@ const EventDetailsC = () => {
 
       {/* Botones */}
       <span className="detail-label">*Los eventos únicamente pueden cancelarse con 20 días de anticipación.</span>
-
+      
       <div className="button-container">
+        {eventData.EventStatus === "In_planning" && (
         <button className="btn-primary-custom btn" onClick={() => setModalOpen(true)}>
           Cancelar evento
         </button>
+)}
         <button className="btn-secondary-custom back-button btn" onClick={handleGoBack}>
           Volver
         </button>
