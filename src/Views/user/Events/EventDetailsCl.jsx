@@ -174,10 +174,12 @@ const EventDetailsC = () => {
 
       {/* Detalles */}
       <div className="details-grid">
-        <div className="detail-item">
+        
+        <div className="detail-item" style={{ gridColumn: "1 / -1" }}>
           <span className="detail-label">Nombre del evento</span>
           <div className="detail-box">{eventData.EventName || "N/A"}</div>
         </div>
+
         <div className="detail-item">
           <span className="detail-label">Fecha y hora</span>
           <div className="detail-box">
@@ -239,6 +241,8 @@ const EventDetailsC = () => {
           onClose={() => setShowResourcesModal(false)}
         />
       )}
+
+      <ToastContainer toasts={toasts} removeToast={removeToast} />
 
       {/* MODAL DE CANCELACIÓN */}
       <RequestModal
