@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../Views/CSS/Modals.css";
 
 const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
-  const [reason, setReason] = useState("");
+  const [message, setReason] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -15,7 +15,7 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
 
   const SendReason = async () => {
     // Validaciones básicas
-    if (!reason.trim()) {
+    if (!message.trim()) {
       setError("Por favor ingrese un motivo");
       return;
     }
