@@ -37,7 +37,7 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
     try {
       const payload = {
         userId: user.id,
-        requestType,
+        message,
         reason: reason.trim(),
         eventId: eventId || undefined,
       };
