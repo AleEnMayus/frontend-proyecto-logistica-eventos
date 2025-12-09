@@ -128,41 +128,32 @@ const ListEventsC = () => {
               <th>Fecha</th>
               <th>Nombre del evento</th>
               <th>Estado</th>
-              <th>Ver</th>
             </tr>
           </thead>
-          <tbody>
-            {currentEvents.map((evento) => {
-              const fecha = new Date(evento.EventDateTime).toLocaleDateString();
-              const hora = new Date(evento.EventDateTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-              return (
-                <tr key={evento.EventId}>
-                  <td>
-                    <div style={{ textAlign: 'center' }}>
-                      <div style={{ fontWeight: '600', color: '#2c3e50' }}>{fecha}</div>
-                      <div style={{ fontSize: '0.85rem', color: '#6c757d' }}>{hora}</div>
-                    </div>
-                  </td>
-                  <td>
-                    <span style={{ fontWeight: '500', color: '#2c3e50' }}>
-                      {evento.EventName}
-                    </span>
-                  </td>
-                  <td>
-                    <EstadoBadge estado={translateStatus(evento.EventStatus)} />
-                  </td>
-                  <td>
-                    <button
-                      className="btn-custom btn-edit-custom d-flex align-items-center mx-auto"
-                      onClick={() => handleVerEvento(evento.EventId)}
-                    >
-                      Ver
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
+          <tbody className="events-tbody events-table">
+                      {currentEvents.map((evento) => {
+                        const fecha = new Date(evento.EventDateTime).toLocaleDateString();
+                        const hora = new Date(evento.EventDateTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          
+                        return (
+                          <tr
+                            key={evento.EventId}
+                            onClick={() => handleVerEvento(evento.EventId)}
+                          >
+                            <td className="events-td-fecha">
+                              <div className="events-fecha">{fecha}</div>
+                              <div className="events-hora">{hora}</div>
+                            </td>
+                            <td className="events-td-evento">
+                              {evento.EventName}
+                            </td>
+                            <td>
+                              <EstadoBadge estado={translateStatus(evento.EventStatus)} />
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
         </table>
       </div>
 

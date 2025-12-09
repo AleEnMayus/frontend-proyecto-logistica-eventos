@@ -190,6 +190,9 @@ const EventDetailsC = () => {
       </div>
 
       {/* Botones */}
+
+      <span className="detail-label">*Los eventos unicamente pueden cancelarse con 20 Días de anticipacion.</span>
+
       <div className="button-container">
         <button className="btn-primary-custom btn"onClick={() => setModalOpen(true)}>
           Cancelar evento
