@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import "../../Views/CSS/Modals.css";
 import api from '../../utils/axiosConfig';
 
+  // Importar el hook y el componente ToastContainer
+import { useToast } from "../../../hooks/useToast"; 
+import ToastContainer from "../../../components/ToastContainer";
+
 const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
   const [reason, setReason] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+
+  const { toasts, addToast, removeToast } = useToast();
+
 
   if (!isOpen) return null;
 
@@ -62,11 +69,14 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
       
       if (err.response) {
         const errorMessage = err.response.data?.error || err.response.data?.message || `Error ${err.response.status}: No se pudo procesar la solicitud`;
-        setError(errorMessage);
+        addToast(errorMessage || "Error Interno con el servidor", "danger");
+        setTimeout(() => {
+          onClose();
+        }, 3000);
       } else if (err.request) {
-        setError("No se pudo conectar con el servidor. Verifique su conexión.");
+        addToast(err.request || "No se pudo conectar con el servidor. Verifique su conexión.", "danger");
       } else {
-        setError(err.message || "Ocurrió un error inesperado. Intente nuevamente.");
+        addToast(err.message || "Ocurrió un error inesperado. Intente nuevamente.", "danger");
       }
     } finally {
       setLoading(false);
@@ -212,6 +222,8 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
           </div>
         )}
       </div>
+    {/*Toast */}
+    <ToastContainer toasts={toasts} removeToast={removeToast} /> {/* Render */}
     </div>
   );
 };
