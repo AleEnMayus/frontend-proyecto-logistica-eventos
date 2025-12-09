@@ -213,26 +213,29 @@ const HomeClient = () => {
               </div>
             </div>
 
-            {/* Tarjeta 6: Ayuda y Soporte */}
-            {/* Tarjeta: Manual de Usuario (Cliente) */}
+            {/* Tarjeta 6: Manual de Usuario (Cliente) */}
             <div className="col-12 col-sm-6 col-lg-4">
               <div className="card h-100 border-0 shadow-sm hover-card">
                 <div className="card-body d-flex flex-column">
-                  <div className="d-inline-flex align-items-center justify-content-center rounded-circle mb-3">
+                  <div className="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
+                    style={{ width: '56px', height: '56px', backgroundColor: '#eef2ff' }}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="currentcolor"><path d="M400-400h160v-80H400v80Zm0-120h320v-80H400v80Zm0-120h320v-80H400v80Zm-80 400q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"/></svg>
                   </div>
-                  <h5 className="card-title fw-semibold text-dark">Manual de Usuario</h5>
+                  <h5 className="card-title fw-semibold text-dark">Manual</h5>
                   <p className="card-text text-muted flex-grow-1">
-                    Consulta el manual de usuario para aprender a usar la plataforma.
+                    Consulta el manual para aprender a usar la plataforma.
                   </p>
-                  <a href="/Documentos/manual_usuario.pdf" target="_blank" rel="noopener noreferrer" className="text-decoration-none fw-semibold d-inline-flex align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentcolor" className='me-2'><path d="M760-200H320q-33 0-56.5-23.5T240-280v-560q0-33 23.5-56.5T320-920h280l240 240v400q0 33-23.5 56.5T760-200ZM560-640v-200H320v560h440v-360H560ZM160-40q-33 0-56.5-23.5T80-120v-560h80v560h440v80H160Zm160-800v200-200 560-560Z"/></svg>
-                    Abrir manual
-                    <i className="bi bi-arrow-right ms-1"></i>
-                  </a>
+                  <div className="d-flex flex-column gap-2">
+                    <a href="/Documentos/manual_usuario.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm text-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentcolor" className='me-2'><path d="M760-200H320q-33 0-56.5-23.5T240-280v-560q0-33 23.5-56.5T320-920h280l240 240v400q0 33-23.5 56.5T760-200ZM560-640v-200H320v560h440v-360H560ZM160-40q-33 0-56.5-23.5T80-120v-560h80v560h440v80H160Zm160-800v200-200 560-560Z"/></svg>
+                      Manual
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
+          
+            {/* Tarjeta 7: Ayuda y Soporte */}
             <div className="col-12 col-sm-6 col-lg-4">
               <div className="card h-100 border-0 shadow-sm hover-card">
                 <div className="card-body d-flex flex-column">
