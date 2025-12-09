@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../../utils/axiosConfig';
 import HeaderCl from "../../../components/HeaderSidebar/HeaderCl";
 import RequestModal from '../../../components/Modals/RequestModal';
+import ModalViewResources from "../../admin/Events/ModalViewResources";
 import '../../CSS/components.css';
 import '../../CSS/DetailsEvt.css';
 import { translateStatus } from '../../../utils/FormatText';
@@ -16,6 +17,8 @@ const EventDetailsC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [showResourcesModal, setShowResourcesModal] = useState(false);
+  const [resources, setResources] = useState([]);
 
   // Obtener usuario de localStorage
   const storedUser = localStorage.getItem("user");
@@ -83,6 +86,16 @@ const EventDetailsC = () => {
 
   const handleGoBack = () => {
     navigate(-1);
+  };
+
+  const handleResources = () => {
+    if (!eventData || !eventData.resources || eventData.resources.length === 0) {
+      alert("Este evento no tiene recursos asignados");
+      return;
+    }
+
+    setResources(eventData.resources);
+    setShowResourcesModal(true);
   };
 
   if (loading) {
@@ -183,6 +196,19 @@ const EventDetailsC = () => {
           <span className="detail-label">Método de pago</span>
           <div className="detail-box">{translateStatus(eventData.AdvancePaymentMethod) || "N/A"}</div>
         </div>
+
+        {/* BOTÓN RECURSOS */}
+        <div className="detail-item">
+          <span className="detail-label">Recursos Asignados</span>
+          <button
+            className="btn-primary-custom btn"
+            onClick={handleResources}
+            style={{ width: "100%" }}
+          >
+            Ver Recursos Asignados
+          </button>
+        </div>      
+
         <div className="detail-item" style={{ gridColumn: "1 / -1" }}>
           <span className="detail-label">Descripción</span>
           <div className="detail-box">{eventData.EventDescription || "N/A"}</div>
@@ -190,11 +216,10 @@ const EventDetailsC = () => {
       </div>
 
       {/* Botones */}
-
-      <span className="detail-label">*Los eventos unicamente pueden cancelarse con 20 Días de anticipacion.</span>
+      <span className="detail-label">*Los eventos únicamente pueden cancelarse con 20 días de anticipación.</span>
 
       <div className="button-container">
-        <button className="btn-primary-custom btn"onClick={() => setModalOpen(true)}>
+        <button className="btn-primary-custom btn" onClick={() => setModalOpen(true)}>
           Cancelar evento
         </button>
         <button className="btn-secondary-custom back-button btn" onClick={handleGoBack}>
@@ -202,6 +227,15 @@ const EventDetailsC = () => {
         </button>
       </div>
 
+      {/* MODAL DE RECURSOS */}
+      {showResourcesModal && (
+        <ModalViewResources
+          resources={resources}
+          onClose={() => setShowResourcesModal(false)}
+        />
+      )}
+
+      {/* MODAL DE CANCELACIÓN */}
       <RequestModal
         isOpen={isModalOpen}
         onClose={() => setModalOpen(false)}
