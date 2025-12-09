@@ -64,12 +64,8 @@ const Schedule = () => {
 
       const response = await api.post("/requests", {
         // ManagementDate es la fecha DESEADA de la cita (obligatorio)
-        ManagementDate: managementDateTime,
-        
-        // RequestDate se puede omitir (se usa CURRENT_TIMESTAMP por defecto)
-        // o si quieres enviarlo explícitamente:
-        // RequestDate: new Date().toISOString(),
-        
+        ManagementDate: new Date().toISOString(),
+        RequestDate: managementDateTime,
         RequestDescription: reason,
         RequestType: "schedule_appointment",
         UserId: user.id || 1,
