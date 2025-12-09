@@ -388,7 +388,7 @@ button.dropdown-item-custom:focus {
   .sm-btn {
     padding: 8px 16px !important;
     font-size: 0.9rem !important;
-    width: 119px !important;
+    width: 125px !important;
   }
 
 }
@@ -398,4 +398,26 @@ button.dropdown-item-custom:focus {
     padding-left: 10px !important;
     padding-right: 10px !important;
   }
+}
+
+/* Estilos para botones PDF */
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bi-file-pdf {
+  color: #dc3545 !important;
+  font-weight: bold;
+}
+
+a[href*=".pdf"] {
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+a[href*=".pdf"]:hover {
+  opacity: 0.9;
 }

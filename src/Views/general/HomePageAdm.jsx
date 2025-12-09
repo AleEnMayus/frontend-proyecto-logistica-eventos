@@ -252,7 +252,7 @@ const HomeAdmin = ({ user, onLogout }) => {
                 <div className="card-body d-flex flex-column">
                   <div className="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
                     style={{ width: '56px', height: '56px', backgroundColor: '#eef2ff' }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#4f46e5"><path d="M160-160v-560q0-33 23.5-56.5T240-800h480q33 0 56.5 23.5T800-720v560q0 33-23.5 56.5T720-80H240q-33 0-56.5-23.5T160-160Zm80-200h320v-40H240v40Zm0 120h320v-40H240v40Zm0 120h320v-40H240v40Z"/></svg>
+                    <i className="bi bi-book-fill fs-4" style={{ color: '#4f46e5' }}></i>
                   </div>
                   <h5 className="card-title fw-semibold text-dark">Manuales</h5>
                   <p className="card-text text-muted flex-grow-1">
@@ -260,10 +260,12 @@ const HomeAdmin = ({ user, onLogout }) => {
                   </p>
                   <div className="d-flex flex-column gap-2">
                     <a href="/manual_usuario.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm text-start">
+                      <i className="bi bi-file-pdf me-2"></i>
                       Manual - Usuario
                     </a>
-                    <a href="/manual_tecnico.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline-secondary btn-sm text-start">
-                      Manual - Técnico
+                    <a href="/manual_usuario.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline-secondary btn-sm text-start">
+                      <i className="bi bi-file-pdf me-2"></i>
+                      Manual - Técnico (próximamente)
                     </a>
                   </div>
                 </div>

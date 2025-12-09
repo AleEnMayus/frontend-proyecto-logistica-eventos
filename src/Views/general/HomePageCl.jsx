@@ -228,6 +228,7 @@ const HomeClient = () => {
                   </p>
                   <a href="/manual_usuario.pdf" target="_blank" rel="noopener noreferrer" className="text-decoration-none fw-semibold d-inline-flex align-items-center"
                     style={{ color: '#15A5E7' }}>
+                    <i className="bi bi-file-pdf me-2"></i>
                     Abrir manual
                     <i className="bi bi-arrow-right ms-1"></i>
                   </a>
