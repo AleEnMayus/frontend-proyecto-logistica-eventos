@@ -259,13 +259,13 @@ const HomeAdmin = ({ user, onLogout }) => {
                     Descarga los manuales para administrador y usuario.
                   </p>
                   <div className="d-flex flex-column gap-2">
-                    <a href="/manual_usuario.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm text-start">
+                    <a href="/Documentos/manual_usuario.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm text-start">
                       <i className="bi bi-file-pdf me-2"></i>
                       Manual - Usuario
                     </a>
-                    <a href="/manual_usuario.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline-secondary btn-sm text-start">
+                    <a href="/Documentos/manual_tecnico.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline-secondary btn-sm text-start">
                       <i className="bi bi-file-pdf me-2"></i>
-                      Manual - Técnico (próximamente)
+                      Manual - Técnico
                     </a>
                   </div>
                 </div>
