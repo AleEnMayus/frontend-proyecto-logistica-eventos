@@ -8,6 +8,10 @@ import '../../CSS/components.css';
 import '../../CSS/DetailsEvt.css';
 import { translateStatus } from '../../../utils/FormatText';
 
+import { useToast } from '../../../hooks/useToast';
+import ToastContainer from '../../../components/ToastContainer';
+
+
 const EventDetailsC = () => {
   const { eventId } = useParams();
   const navigate = useNavigate();
@@ -19,6 +23,8 @@ const EventDetailsC = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [showResourcesModal, setShowResourcesModal] = useState(false);
   const [resources, setResources] = useState([]);
+
+  const { toasts, addToast, removeToast } = useToast();
 
   // Obtener usuario de localStorage
   const storedUser = localStorage.getItem("user");
@@ -90,7 +96,7 @@ const EventDetailsC = () => {
 
   const handleResources = () => {
     if (!eventData || !eventData.resources || eventData.resources.length === 0) {
-      alert("Este evento no tiene recursos asignados");
+      addToast("Este evento no tiene recursos asignados", "info");
       return;
     }
 
@@ -198,12 +204,11 @@ const EventDetailsC = () => {
         </div>
 
         {/* BOTÓN RECURSOS */}
-        <div className="detail-item">
+        <div className="detail-item w-100">
           <span className="detail-label">Recursos Asignados</span>
           <button
             className="btn-primary-custom btn"
             onClick={handleResources}
-            style={{ width: "100%" }}
           >
             Ver Recursos Asignados
           </button>

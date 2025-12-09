@@ -115,7 +115,7 @@ const EventDetailsA = () => {
   //  ***MODIFICADO AQUÍ*** → ahora toma los recursos directamente del evento
   const handleResources = () => {
     if (!eventData || !eventData.resources) {
-      addToast("Este evento no tiene recursos asignados", "warning");
+      addToast("Este evento no tiene recursos asignados", "info");
       return;
     }
 
