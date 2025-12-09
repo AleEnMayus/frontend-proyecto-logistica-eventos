@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Modals.css";
+import "../../Views/CSS/Modals.css";
 
 const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
   const [reason, setReason] = useState("");
@@ -55,7 +55,6 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Error al enviar la solicitud');
       }
-
       setSuccess(true);
       setReason("");
     } catch (err) {
