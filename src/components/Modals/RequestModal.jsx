@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "../../Views/CSS/Modals.css";
+import api from '../../utils/axiosConfig';
 
 const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
-  const [message, setReason] = useState("");
+  const [reason, setReason] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -14,8 +15,7 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
   const stop = (e) => e.stopPropagation();
 
   const SendReason = async () => {
-    // Validaciones básicas
-    if (!message.trim()) {
+    if (!reason.trim()) {
       setError("Por favor ingrese un motivo");
       return;
     }
@@ -36,33 +36,42 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
 
     try {
       const payload = {
-        userId: user.id,
-        message,
-        reason: reason.trim(),
-        eventId: eventId || undefined,
+        RequestDate: new Date().toISOString(),
+        RequestDescription: reason,
+        RequestType: requestType,
+        UserId: user.id,
+        ...(requestType === "cancel_event" && { EventId: eventId }),
       };
 
-      // Enviar solicitud al backend
-      const response = await fetch('/api/requests', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      console.log("Enviando solicitud:", payload);
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Error al enviar la solicitud');
-      }
+      const res = await api.post('/requests', payload);
+      const data = res.data;
+
+      console.log("Respuesta del servidor:", { status: res.status, data });
+
       setSuccess(true);
       setReason("");
+      
+      setTimeout(() => {
+        onClose();
+      }, 2000);
+
     } catch (err) {
-      setError(err.message);
+      console.error("Error completo:", err);
+      
+      if (err.response) {
+        const errorMessage = err.response.data?.error || err.response.data?.message || `Error ${err.response.status}: No se pudo procesar la solicitud`;
+        setError(errorMessage);
+      } else if (err.request) {
+        setError("No se pudo conectar con el servidor. Verifique su conexión.");
+      } else {
+        setError(err.message || "Ocurrió un error inesperado. Intente nuevamente.");
+      }
     } finally {
       setLoading(false);
     }
-  };  
+  };
 
   const requestConfig = {
     schedule_appointment: {
@@ -108,7 +117,6 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
         </h4>
 
         <div className="pm-body">
-          {/* Mensaje de error */}
           {error && (
             <div 
               className="alert alert-danger" 
@@ -126,7 +134,6 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
             </div>
           )}
 
-          {/* Mensaje de éxito */}
           {success && (
             <div 
               className="alert alert-success" 
@@ -155,7 +162,7 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
                 value={reason}
                 onChange={(e) => {
                   setReason(e.target.value);
-                  if (error) setError(""); // Limpiar error al escribir
+                  if (error) setError("");
                 }}
                 rows={6}
                 maxLength={500}
@@ -196,7 +203,6 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
           {loading ? "Enviando..." : success ? "Enviado" : "Enviar solicitud"}
         </button>
 
-        {/* Info adicional para cancelaciones */}
         {requestType === "cancel_event" && (
           <div 
             className="text-center small text-muted mt-3"
