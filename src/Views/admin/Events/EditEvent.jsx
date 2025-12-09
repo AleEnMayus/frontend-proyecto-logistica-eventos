@@ -75,7 +75,7 @@ const EditEvent = () => {
       setTimeout(() => navigate(`/EventsHomeAdmin/Details/${eventId}`), 2000);
     } catch (error) {
       console.error("Error actualizando evento:", error);
-     addToast(
+      addToast(
         error.response?.data?.message ||
         error.response?.data?.error ||
         error.message ||
