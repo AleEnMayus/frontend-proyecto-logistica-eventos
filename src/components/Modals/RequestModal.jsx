@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../Views/CSS/Modals.css";
 import api from '../../utils/axiosConfig';
 import { useToast } from "../../hooks/useToast"; 
-import ToastContainer from "../components/ToastContainer";
+import ToastContainer from "../ToastContainer";
 
 const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
   const [reason, setReason] = useState("");
