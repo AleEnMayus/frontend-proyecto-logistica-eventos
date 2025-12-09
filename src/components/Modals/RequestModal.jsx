@@ -36,60 +36,34 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
 
     try {
       const payload = {
-        RequestDate: new Date().toISOString(),
-        RequestDescription: reason,
-        RequestType: requestType,
-        UserId: user.id,
-        ...(requestType === "cancel_event" && { EventId: eventId }),
+        userId: user.id,
+        requestType,
+        reason: reason.trim(),
+        eventId: eventId || undefined,
       };
 
-      console.log("Enviando solicitud:", payload);
-
-      const res = await fetch('/api/requests', {
+      // Enviar solicitud al backend
+      const response = await fetch('/api/requests', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Agrega token si usas autenticación
-          // 'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
       });
 
-      const data = await res.json();
-
-      console.log("Respuesta del servidor:", { status: res.status, data });
-
-      if (!res.ok) {
-        // El servidor respondió con error
-        throw new Error(data.error || `Error ${res.status}: No se pudo procesar la solicitud`);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error al enviar la solicitud');
       }
 
-      // Éxito
       setSuccess(true);
       setReason("");
-      
-      // Cerrar modal después de 2 segundos
-      setTimeout(() => {
-        onClose();
-        // Opcional: recargar datos o actualizar lista
-        // window.location.reload();
-      }, 2000);
-
     } catch (err) {
-      console.error("Error completo:", err);
-      
-      // Mostrar el mensaje de error específico
-      if (err.message) {
-        setError(err.message);
-      } else if (err.name === 'TypeError' && err.message.includes('fetch')) {
-        setError("No se pudo conectar con el servidor. Verifique su conexión.");
-      } else {
-        setError("Ocurrió un error inesperado. Intente nuevamente.");
-      }
+      setError(err.message);
     } finally {
       setLoading(false);
     }
-  };
+  };  
 
   const requestConfig = {
     schedule_appointment: {
@@ -131,7 +105,6 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
         </button>
 
         <h4 className="modal-title text-center mb-3">
-          <span style={{ marginRight: '8px' }}>{config.icon}</span>
           {config.title}
         </h4>
 
@@ -221,7 +194,7 @@ const RequestModal = ({ isOpen, onClose, requestType, eventId = null }) => {
             cursor: (loading || success || !reason.trim()) ? 'not-allowed' : 'pointer'
           }}
         >
-          {loading ? "Enviando..." : success ? " Enviado" : "Enviar solicitud"}
+          {loading ? "Enviando..." : success ? "Enviado" : "Enviar solicitud"}
         </button>
 
         {/* Info adicional para cancelaciones */}
