@@ -59,6 +59,17 @@ FrontEnd/
 
 ---
 
-##  Estado
+##  ENV
 
->  **En desarrollo activo**
+Crea un archivo .env en la raíz del proyecto Frontend con las siguientes variables:
+
+- URL base para la API REST (incluye /api si tu backend la expone así)
+- Título de la aplicación (opcional)
+- URL del servidor de sockets (socket.io)
+```bash
+VITE_API_BASE_URL=http://localhost:4000/api
+VITE_SOCKET_URL=http://localhost:4000
+VITE_APP_TITLE=ProyectoLogisticaEventos
+```
+
+Nota: Si despliegas a producción, recuerda cambiar estas URLs a tu dominio o servidor correspondiente.
